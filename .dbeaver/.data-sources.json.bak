@@ -1,0 +1,46 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-185272ccead-606645584ea2dac1": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "postgres",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-15",
+				"type": "dev",
+				"provider-properties": {},
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"postgres-jdbc-185272ccead-606645584ea2dac1": {
+			"postgres": {
+				"user_roles": {
+					"@properties": {
+						"erd.diagram.state": {
+							"serialized": "\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202212190013\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"postgres-jdbc-185272ccead-606645584ea2dac1\"\u003e\u003centity id\u003d\"1\" name\u003d\"reimbursement\" fq-name\u003d\"user_roles.reimbursement\" order\u003d\"0\" x\u003d\"401\" y\u003d\"362\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"reimbursement_status\" fq-name\u003d\"user_roles.reimbursement_status\" order\u003d\"1\" x\u003d\"479\" y\u003d\"175\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"reimbursement_type\" fq-name\u003d\"user_roles.reimbursement_type\" order\u003d\"2\" x\u003d\"292\" y\u003d\"51\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"user_roles\" fq-name\u003d\"user_roles.user_roles\" order\u003d\"3\" x\u003d\"31\" y\u003d\"55\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"users\" fq-name\u003d\"user_roles.users\" order\u003d\"4\" x\u003d\"43\" y\u003d\"360\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"6\" name\u003d\"users_roles\" fq-name\u003d\"user_roles.users_roles\" order\u003d\"5\" border-width\u003d\"3\" x\u003d\"56\" y\u003d\"594\"\u003e\u003cpath name\u003d\"user_roles\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"reimbursement_reimb_id_fk_status_fkey\" fq-name\u003d\"user_roles.reimbursement.reimbursement_reimb_id_fk_status_fkey\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"reimbursement_reimb_id_fk_type_fkey\" fq-name\u003d\"user_roles.reimbursement.reimbursement_reimb_id_fk_type_fkey\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"users_user_roles_id_fk_fkey\" fq-name\u003d\"user_roles.users.users_user_roles_id_fk_fkey\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"5\"/\u003e\u003crelation name\u003d\"reimbursement_reimb_id_fk_users_fkey\" fq-name\u003d\"user_roles.reimbursement.reimbursement_reimb_id_fk_users_fkey\" type\u003d\"fk\" pk-ref\u003d\"5\" fk-ref\u003d\"1\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
