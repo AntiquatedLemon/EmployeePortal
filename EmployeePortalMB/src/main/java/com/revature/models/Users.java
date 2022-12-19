@@ -12,14 +12,14 @@ public class Users {
     private String pword;
     //users have role objects instead of just a fk
     private Role role;
-    private int role_id_fk; //makes Postman inserts easier
+    private int user_roles_id_fk; //makes Postman inserts easier
 
     //no-args, flexibility, have an user to fill in later
     public Users(){
     }
 
 
-    //alll-args
+    //all-args
     public Users(int user_id, String user_first_name, String user_last_name, String username, String pword, Role role) {
         this.user_id = user_id;
         this.user_first_name = user_first_name;
@@ -30,7 +30,7 @@ public class Users {
     }
 
 
-    //alll-args sans id
+    //all-args sans id
     public Users(String user_first_name, String user_last_name, String username, String pword, Role role) {
         this.user_first_name = user_first_name;
         this.user_last_name = user_last_name;
@@ -42,12 +42,12 @@ public class Users {
 
     //another all-args no id but to help with http post request to insert users
     //no need to specify an entire Role object
-    public Users(String user_first_name, String user_last_name, String username, String pword, int role_id_fk) {
+    public Users(String user_first_name, String user_last_name, String username, String pword, int user_roles_id_fk) {
         this.user_first_name = user_first_name;
         this.user_last_name = user_last_name;
         this.username = username;
         this.pword = pword;
-        this.role_id_fk = role_id_fk;
+        this.user_roles_id_fk = user_roles_id_fk;
     }
 
     public int getUser_id() {
@@ -99,11 +99,11 @@ public class Users {
     }
 
     public int getRole_id_fk() {
-        return role_id_fk;
+        return user_roles_id_fk;
     }
 
-    public void setRole_id_fk(int role_id_fk) {
-        this.role_id_fk = role_id_fk;
+    public void setRole_id_fk(int user_roles_id_fk) {
+        this.user_roles_id_fk = user_roles_id_fk;
     }
 
     public String toString(){
