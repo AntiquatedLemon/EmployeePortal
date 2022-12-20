@@ -20,10 +20,11 @@ public class RoleDAO implements RoleDAOInterface{
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, ID);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            if (rs.next()){
+                //changed to if statement since the while loop was being SUPREMELY pissy with me
                 Role role = new Role(
                         rs.getInt("user_roles_id"),
-                        rs.getString("user_role_title"),
+                        rs.getString("user_roles_title")
                 );
                 return role;
             }

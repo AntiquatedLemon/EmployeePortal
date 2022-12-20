@@ -107,7 +107,7 @@ public class Users {
     }
 
     public String toString(){
-        return "User{" +
+        return "Users{" +
                 "user_id" + user_id +
                 ", user_first_name='" + user_first_name + '\'' +
                 ", user_last_name='" + user_last_name + '\'' +
