@@ -35,11 +35,11 @@ public class RoleDAO implements RoleDAOInterface{
     }
 
     //could make this include salary
-    @Override
-    public boolean updateRoleTitle(String title) {
+    //@Override
+    public boolean updateRoleTitle(String username, String title) {
         try(Connection conn = ConnectionUtil.getConnection()){
             //where user role int = ?, update the title of the user to ? in table user_roles
-            String sql = "update user_roles set user_role_title = ? where user_roles_id = ?;";
+            String sql = "update user_roles set user_role_title = ? where username = ?;";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, title);

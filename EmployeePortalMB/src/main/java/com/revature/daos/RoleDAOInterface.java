@@ -7,5 +7,5 @@ public interface RoleDAOInterface {
     Role getRoleByID(int ID);
 
     //just in case I want to update the role title
-    boolean updateRoleTitle(String title);
+    boolean updateRoleTitle(String username, String title);
 }
