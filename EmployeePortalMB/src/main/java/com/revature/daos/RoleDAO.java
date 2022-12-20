@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class RoleDAO implements RoleDAOInterface{
     //inherit all por favor
-    //sql statement
+    //sql statement, with variable
 
     @Override
     public Role getRoleByID(int ID) {
