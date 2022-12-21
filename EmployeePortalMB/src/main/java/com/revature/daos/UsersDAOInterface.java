@@ -6,7 +6,7 @@ import com.revature.models.Users;
 
 import java.util.ArrayList;
 
-public interface UserDAOInterface {
+public interface UsersDAOInterface {
     //make a class for each table in models
     //each table will get a DAO Interface and class
 

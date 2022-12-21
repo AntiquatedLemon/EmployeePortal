@@ -32,7 +32,7 @@ public class Launcher {
         RoleController rc = new RoleController();
         AuthController ac = new AuthController();
 
-        //take GET requests for getusers
+        //GET requests for all users
         app.get("/users", uc.getEmployeesHandler);
 
         //post requests for add to database

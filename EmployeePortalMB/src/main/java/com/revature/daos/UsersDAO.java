@@ -7,7 +7,7 @@ import com.revature.utils.ConnectionUtil;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UsersDAO implements UserDAOInterface {
+public class UsersDAO implements UsersDAOInterface {
     @Override
     public ArrayList<Users> getUsers() {
 
