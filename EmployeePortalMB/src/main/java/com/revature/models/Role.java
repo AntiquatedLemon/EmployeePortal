@@ -1,8 +1,8 @@
 package com.revature.models;
 
 public class Role {
-    private int role_id;
-    private String role_title;
+    private int role_id; //from sql database
+    private String role_title; //from sql database
 
     //boilerplate things
 

@@ -7,10 +7,10 @@ import com.revature.utils.ConnectionUtil;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UsersDAO implements UsersDAOInterface {
-    @Override
-    public ArrayList<Users> getUsers() {
+public class UsersDAO {
 
+    //select all users
+    public ArrayList<Users> getUsers() {
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "select * from users;";
 
@@ -21,7 +21,6 @@ public class UsersDAO implements UsersDAOInterface {
             ResultSet rs = s.executeQuery(sql);
 
             ArrayList <Users> usersList = new ArrayList();
-
             while (rs.next()) {
                 Users u = new Users(
                         rs.getInt("user_id"),
@@ -30,8 +29,7 @@ public class UsersDAO implements UsersDAOInterface {
                         rs.getString("username"),
                         rs.getString("pword"),
                         null
-                );
-                //come back here after role DAO
+                ); //null because no jdbc obj for role so make it ourselves
                 //gets role value through fk
                 int roleFK = rs.getInt("user_roles_id_fk");
 
@@ -51,45 +49,68 @@ public class UsersDAO implements UsersDAOInterface {
         }
         return null;
     }
-
-    public Users insertUsers(Users user) {
-        //DAO needs the connect
+    public Users getUserByID(int ID) {
+        //try w/ resources block to create connection
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "insert into users (user_first_name, user_last_name, username, pword, user_roles_id_fk values (?, ?, ?, ?, ?);";
 
-            //instantiate prepstate for dql and filling in var
+            String sql = "select * from users where users_id = ?;";
+            //going to the database - something SQL understands
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, ID);
+            //above 3 means retrieve every ID that meets the variable
+            ResultSet rs = ps.executeQuery();
+            //store query in the resultset
 
-            //fill out the wildcards using the user object in the args
-            ps.setString(1, user.getUser_first_name());
-            ps.setString(2, user.getUser_last_name());
-            ps.setString(3, user.getUsername());
-            ps.setString(4, user.getPword());
-            ps.setInt(5, user.getRole_id_fk());
+            // if there are results in the resultset, fill a role all-args constructor - make new role
+            if (rs.next()){
+                //changed to if statement since the while loop was being SUPREMELY pissy with me
+                Users users = new Users(
+                        rs.getInt("users_id"),
+                        rs.getString("user_first_name"),
+                        rs.getString("user_last_name"),
+                        rs.getString("username"),
+                        rs.getString("pword"),
+                        null
+                );
+                int roleFK = rs.getInt("user_roles_id_fk");
 
-            //execute update
-            ps.executeUpdate();
+                //role object to use id we got
+                RoleDAO rDAO = new RoleDAO();
+                Role r = rDAO.getRoleByID(roleFK);
 
-            //confirm that the user was added
-            return user;
-        } catch (SQLException e) {
+                return users; //return role data to
+            }
+        }catch(SQLException e){
             e.printStackTrace();
         }
         return null;
     }
 
-    @Override
-    public boolean deleteUsersByID(int ID) {
+    //create a new acct with the project - "register feature" ---------------------------------------------------------------------------------------------------------
+    //insert a user
+    public boolean insertUsers(String username, String pword) {
+        //DAO needs the connect
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "delete from users where user_id = ?;";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, ID);
-            ps.executeUpdate();
-            return true;
+            String sql = "insert into users (username, pword, user_roles_id_fk) values (?, ?, 2);";
 
+            //instantiate preparedstatement for dql and filling in var
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            //fill out the wildcards using the user object in the args
+            ps.setString(1, username);
+            ps.setString(2, pword);
+
+            //execute update
+            ps.executeUpdate();
+
+            //no new objects created eg roledao etc = new roledao
+            //bc a controller is returning data for me
+
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+    //delete a user?? -> update user role goes in the
 }

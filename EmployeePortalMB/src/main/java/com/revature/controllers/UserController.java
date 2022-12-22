@@ -14,7 +14,6 @@ public class UserController {
 
     //handles http get requests for get all users
     //then send that users data back in a http response
-
     public Handler getEmployeesHandler = (ctx) -> {
         //if not null, they're logged in
         // AS A MANAGER????
@@ -40,12 +39,12 @@ public class UserController {
         //turn into user obj
         Users newUser = gson.fromJson(body, Users.class);
 
-        if(uDAO.insertUsers(newUser) != null){ //given that insert is successful - that is returned a user
+        if(uDAO.insertUsers(newUser.getUsername(), newUser.getPword())){ //given that insert is successful - that is returned a user
             ctx.status(201); //created
-            ctx.result(body);
+            ctx.result(body); //returns the user entry
         } else {
-            ctx.status(406);
-            ctx.result("User insert failed. Please don't try again.");
+            ctx.status(406); //not acceptable
+            ctx.result("Username is taken. Please don't try again.");
         }
 
     };

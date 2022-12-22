@@ -39,7 +39,6 @@ public class Users {
         this.role = role;
     }
 
-
     //another all-args no id but to help with http post request to insert users
     //no need to specify an entire Role object
     public Users(String user_first_name, String user_last_name, String username, String pword, int user_roles_id_fk) {

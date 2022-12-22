@@ -9,7 +9,6 @@ public class ReimbursementStatus {
     //no args
     public ReimbursementStatus(){
     }
-
     //all args
     public ReimbursementStatus(int reimb_status_id, String reimb_status) {
         this.reimb_status_id = reimb_status_id;
@@ -22,6 +21,7 @@ public class ReimbursementStatus {
     }
 
     //getters and setters
+
 
     public int getReimb_status_id() {
         return reimb_status_id;
@@ -40,8 +40,8 @@ public class ReimbursementStatus {
     }
 
     @Override
-    public String toString(){
-        return "Reimbursement Status{" +
+    public String toString() {
+        return "ReimbursementStatus{" +
                 "reimb_status_id=" + reimb_status_id +
                 ", reimb_status='" + reimb_status + '\'' +
                 '}';

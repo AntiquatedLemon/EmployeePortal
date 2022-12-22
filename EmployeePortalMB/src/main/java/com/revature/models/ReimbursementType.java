@@ -36,11 +36,12 @@ public class ReimbursementType {
     }
 
     //return this string
-    public String toString(){
-        return "Reimbursement Type{" +
+
+    @Override
+    public String toString() {
+        return "ReimbursementType{" +
                 "reimb_type_id=" + reimb_type_id +
                 ", reimb_type='" + reimb_type + '\'' +
                 '}';
     }
-
 }

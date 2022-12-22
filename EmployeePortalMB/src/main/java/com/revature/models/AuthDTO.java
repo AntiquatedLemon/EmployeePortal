@@ -1,10 +1,10 @@
 package com.revature.models;
 //data transfer object
-public class LoginDTO {
+public class AuthDTO {
     private String username;
     private String pword;
 
-    public LoginDTO(String username, String pword) {
+    public AuthDTO(String username, String pword) {
         this.username = username;
         this.pword = pword;
     }

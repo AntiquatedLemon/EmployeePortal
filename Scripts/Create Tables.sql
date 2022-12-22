@@ -70,13 +70,16 @@ SELECT * FROM reimbursement_type;
 
 INSERT INTO reimbursement_status (reimb_status_id , reimb_status)
 VALUES (1, 'pending'), (2, 'approved'), (3, 'denied');
-SELECT * FROM reimbursement_status;
+SELECT reimb_status  FROM reimbursement_status WHERE reimb_status ='pending';
 
 
 INSERT INTO reimbursement (reimb_amt, reimb_desc, reimb_id_fk_users, reimb_id_fk_users2, reimb_id_fk_type, reimb_id_fk_status)
 VALUES (25.74, 'travel expenses from Thailand project', 1, 'm.mckinney',  3, 3);
 SELECT * FROM reimbursement;
 
+
+update user_roles set user_role_title = 'Employee' WHERE user_roles_id = 2;
+SELECT  * FROM user_roles;
 
 
 

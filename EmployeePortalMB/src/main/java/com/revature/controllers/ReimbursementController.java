@@ -1,23 +1,12 @@
 package com.revature.controllers;
 
 import com.google.gson.Gson;
-import com.revature.daos.AuthDAO;
 import com.revature.models.AuthDTO;
 import com.revature.models.Users;
 import io.javalin.http.Handler;
 
-import javax.servlet.http.HttpSession;
-
-public class AuthController {
-    //access DAO method
-    AuthDAO aDAO = new AuthDAO();
-
-    //fill upon login HttpSession obj
-    public static HttpSession sesh;
-    //check if login has happened
-
-    //login is a POST req
-    public Handler loginHandler = (ctx) -> {
+public class ReimbursementController {
+    public Handler Handler = (ctx) -> {
         String body = ctx.body(); //retrieve http request data
         Gson gson = new Gson(); //json to java conversion
         AuthDTO authDTO = gson.fromJson(body, AuthDTO.class);
@@ -41,6 +30,4 @@ public class AuthController {
         }
 
     };
-
-
 }

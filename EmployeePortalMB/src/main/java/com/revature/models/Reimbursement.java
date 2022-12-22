@@ -1,14 +1,22 @@
 package com.revature.models;
 
 public class Reimbursement {
+/*
+Must have an amount
+Must have a description
+Should have a default status of Pending
+ */
 
     //variables needed, id, amt and desc
     private int reimb_id;
     private double reimb_amt;
     private String reimb_desc;
+
+    //user variables
     private Users user;
     private Users username;
 
+    //reimbursement variables
     private ReimbursementType re_type;
     private ReimbursementStatus re_status;
 

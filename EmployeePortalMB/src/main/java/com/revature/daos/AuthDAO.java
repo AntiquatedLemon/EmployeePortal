@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AuthDAO {
+    //register a user is in UserController instead of here!!!
+
     //maybe abstract this later but right now? no
     public Users login(String username, String pword){
         try(Connection conn = ConnectionUtil.getConnection()){
