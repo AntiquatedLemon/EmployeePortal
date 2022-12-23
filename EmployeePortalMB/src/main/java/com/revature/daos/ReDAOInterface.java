@@ -8,12 +8,12 @@ public interface ReDAOInterface {
     ArrayList<Reimbursement> getReimbursement();
 
     //new ticket
-    Reimbursement newTicket(Reimbursement insTicket);
+    Reimbursement newTicket (Reimbursement ticket);
+    //    boolean newTicket (double amt, String desc, String type); finish out later
 
-    //view ticket
-    Reimbursement viewTicket(Reimbursement viewTicket);
-
-
+    //view specific ticket
+    Reimbursement getReimbByRID (int reimb_id);
+    ArrayList<Reimbursement> getAllReimbByUID (int user_id);
     //update ticket
-    Reimbursement updateTicket(Reimbursement updTicket);
+    boolean updateStatus(int reimb_id, int reStatus);
 }

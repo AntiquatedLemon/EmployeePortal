@@ -10,10 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReStatusDAO {
-    //don't filter at all
-
-
-
     /*
     Manger ArrayList = all pending, all pending by user
     Employee View = all pending for user
@@ -47,19 +43,20 @@ public class ReStatusDAO {
         return null;
     }
 
-    public boolean updateStatus(int reimb_id, String reStatus) {
-        try(Connection conn = ConnectionUtil.getConnection()){
-            String sql = "update reimbursement_status set reimb_status = ? where reimb_id = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, reimb_id);
-            ps.setString(2, reStatus);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
+        //this would update my default table (sql) so no, sillly noodle!
+//    public boolean updateStatus(int reimb_id, String reStatus) {
+//        try(Connection conn = ConnectionUtil.getConnection()){
+//            String sql = "update reimbursement set reimb_status = ? where reimb_id = ?";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setInt(1, reimb_id);
+//            ps.setString(2, reStatus);
+//            ps.executeUpdate();
+//            return true;
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 
 }
 

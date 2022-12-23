@@ -1,8 +1,6 @@
 package com.revature;
 
-import com.revature.controllers.AuthController;
-import com.revature.controllers.RoleController;
-import com.revature.controllers.UserController;
+import com.revature.controllers.*;
 import com.revature.utils.ConnectionUtil;
 import io.javalin.Javalin;
 
@@ -31,17 +29,26 @@ public class Launcher {
         UserController uc = new UserController();
         RoleController rc = new RoleController();
         AuthController ac = new AuthController();
+        ReimbursementStatusController rsc = new ReimbursementStatusController();
+        ReimbursementController rbc = new ReimbursementController();
 
         //GET requests for all users
         app.get("/users", uc.getEmployeesHandler);
-
-        //post requests for add to database
-        app.post("/users", uc.insertUser);
-
-        //update role title
-        app.patch("/roles/{title}", rc.updateTitleHandler);
-
+        //post requests for add user to database
+        app.post("/insUsers", uc.insertUser);
         //endpoint handler for login
         app.post("/login", ac.loginHandler);
+
+        app.patch("/updateTicket/{reimb_id}", rsc.updateStatusHandler);
+
+        //create new ticket
+        app.post("/createTicket", rbc.newTicketHandler);
+
+        //view
+        app.get("/viewTickets", rbc.pendingTicketHandler);
+
+        app.get("/viewVTickets", rbc.userViewTicketHandler);
+        //update role title, stretch goal, IGNORE
+        app.patch("/roles/{title}", rc.updateTitleHandler);
     }
 }

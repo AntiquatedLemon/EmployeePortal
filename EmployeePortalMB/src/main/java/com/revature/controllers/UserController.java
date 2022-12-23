@@ -1,7 +1,9 @@
 package com.revature.controllers;
 
 import com.google.gson.Gson;
+import com.revature.daos.AuthDAO;
 import com.revature.daos.UsersDAO;
+import com.revature.models.AuthDTO;
 import com.revature.models.Users;
 import io.javalin.http.Handler;
 
@@ -37,7 +39,7 @@ public class UserController {
         String body = ctx.body();
         Gson gson = new Gson(); //json to java conversion
         //turn into user obj
-        Users newUser = gson.fromJson(body, Users.class);
+        AuthDTO newUser = gson.fromJson(body, AuthDTO.class);
 
         if(uDAO.insertUsers(newUser.getUsername(), newUser.getPword())){ //given that insert is successful - that is returned a user
             ctx.status(201); //created

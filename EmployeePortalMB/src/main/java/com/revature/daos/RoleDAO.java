@@ -29,7 +29,7 @@ public class RoleDAO{
                 //changed to if statement since the while loop was being SUPREMELY pissy with me
                 Role role = new Role(
                         rs.getInt("user_roles_id"),
-                        rs.getString("user_roles_title")
+                        rs.getString("user_role_title")
                 );
                 return role; //return role data to
             }
@@ -46,7 +46,8 @@ public class RoleDAO{
             String sql = "update user_roles set user_role_title = ? where username = ?;";
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, title);
+            ps.setString(1, username);
+            ps.setString(2, title);
             ps.executeUpdate();
             return true;
 

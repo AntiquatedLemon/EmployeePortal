@@ -92,6 +92,7 @@ public class UsersDAO {
         //DAO needs the connect
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "insert into users (username, pword, user_roles_id_fk) values (?, ?, 2);";
+            //hard coded to employee status
 
             //instantiate preparedstatement for dql and filling in var
             PreparedStatement ps = conn.prepareStatement(sql);

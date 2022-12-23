@@ -4,6 +4,7 @@ public class AuthDTO {
     private String username;
     private String pword;
 
+
     public AuthDTO(String username, String pword) {
         this.username = username;
         this.pword = pword;
@@ -24,4 +25,8 @@ public class AuthDTO {
     public void setPword(String pword) {
         this.pword = pword;
     }
+
+
+
+
 }

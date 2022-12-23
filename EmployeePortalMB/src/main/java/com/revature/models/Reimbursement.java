@@ -22,7 +22,7 @@ Should have a default status of Pending
 
     //handle my keys
     private int reimb_id_fk_users; //users(user_id)
-    private int reimb_id_fk_username; //users(usernames)
+    private String reimb_id_fk_username; //users(usernames)
     private int reimb_id_fk_type; //reimbursement_type(reimb_type_id)
     private int reimb_id_fk_status; //reimbursement_status(reimb_status_id)
 
@@ -31,7 +31,7 @@ Should have a default status of Pending
     }
 
     //all args
-    public Reimbursement(int reimb_id, double reimb_amt, String reimb_desc, Users user, Users username, ReimbursementType re_type, ReimbursementStatus re_status, int reimb_id_fk_users, int reimb_id_fk_username, int reimb_id_fk_type, int reimb_id_fk_status) {
+    public Reimbursement(int reimb_id, double reimb_amt, String reimb_desc, Users user, Users username, ReimbursementType re_type, ReimbursementStatus re_status, int reimb_id_fk_users, String reimb_id_fk_username, int reimb_id_fk_type, int reimb_id_fk_status) {
         this.reimb_id = reimb_id;
         this.reimb_amt = reimb_amt;
         this.reimb_desc = reimb_desc;
@@ -46,7 +46,7 @@ Should have a default status of Pending
     }
 
     //all args - id, and fks, help with post requests
-    public Reimbursement(double reimb_amt, String reimb_desc, Users user, Users username, ReimbursementType re_type, ReimbursementStatus re_status, int reimb_id_fk_users, int reimb_id_fk_username, int reimb_id_fk_type, int reimb_id_fk_status) {
+    public Reimbursement(double reimb_amt, String reimb_desc, Users user, Users username, ReimbursementType re_type, ReimbursementStatus re_status, int reimb_id_fk_users, String reimb_id_fk_username, int reimb_id_fk_type, int reimb_id_fk_status) {
         this.reimb_amt = reimb_amt;
         this.reimb_desc = reimb_desc;
         this.user = user;
@@ -57,6 +57,12 @@ Should have a default status of Pending
         this.reimb_id_fk_username = reimb_id_fk_username;
         this.reimb_id_fk_type = reimb_id_fk_type;
         this.reimb_id_fk_status = reimb_id_fk_status;
+    }
+
+    public Reimbursement(double reimb_amt, String reimb_desc, int reimb_id_fk_users) {
+        this.reimb_amt = reimb_amt;
+        this.reimb_desc = reimb_desc;
+        this.reimb_id_fk_users = reimb_id_fk_users;
     }
 
     public int getReimb_id() {
@@ -123,11 +129,11 @@ Should have a default status of Pending
         this.reimb_id_fk_users = reimb_id_fk_users;
     }
 
-    public int getReimb_id_fk_username() {
+    public String getReimb_id_fk_username() {
         return reimb_id_fk_username;
     }
 
-    public void setReimb_id_fk_username(int reimb_id_fk_username) {
+    public void setReimb_id_fk_username(String reimb_id_fk_username) {
         this.reimb_id_fk_username = reimb_id_fk_username;
     }
 

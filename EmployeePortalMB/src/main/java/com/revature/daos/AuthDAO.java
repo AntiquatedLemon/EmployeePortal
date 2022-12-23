@@ -26,7 +26,7 @@ public class AuthDAO {
             //logging in only takes one record rn sooooo no while :)
             if (rs.next()){
                 Users u = new Users(
-                        rs.getInt("user_roles_id"),
+                        rs.getInt("user_id"),
                         rs.getString("user_first_name"),
                         rs.getString("user_last_name"),
                         rs.getString("username"),
